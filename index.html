@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
-<head> 
+<head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TXWH5GHCJB"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-TXWH5GHCJB');
 </script>
 <meta charset="UTF-8">
@@ -247,6 +246,77 @@
     .hero-stat:last-child{border-bottom:none}
     .psp-stats{flex-direction:column}
   }
+
+  /* FORM */
+  #contacto { background: var(--dark); padding: 5rem 0; }
+  #contacto .section-eyebrow { color: var(--red); }
+  #contacto .section-title { color: var(--white); }
+  #contacto .section-subtitle { color: var(--gray); }
+  .form-wrapper {
+    max-width: 720px; margin: 0 auto;
+    background: var(--charcoal); border: 1px solid var(--border);
+    border-radius: 6px; padding: 2.5rem;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1rem; }
+  .form-group label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .72rem; font-weight: 700; letter-spacing: .1em;
+    color: var(--gray); text-transform: uppercase;
+  }
+  .form-group input, .form-group select, .form-group textarea {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 3px; padding: .75rem 1rem;
+    font-family: 'Barlow', sans-serif; font-size: .9rem;
+    color: var(--white); transition: border-color .2s;
+    outline: none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--red);
+  }
+  .form-group input::placeholder, .form-group textarea::placeholder {
+    color: #555;
+  }
+  .form-group select option { background: var(--card); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .services-check {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: .5rem; margin-top: .4rem;
+  }
+  .check-item {
+    display: flex; align-items: center; gap: .6rem;
+    background: var(--card); border: 1px solid var(--border);
+    padding: .6rem .9rem; border-radius: 3px;
+    cursor: pointer; transition: border-color .2s, background .2s;
+  }
+  .check-item:hover { border-color: var(--red); background: rgba(192,22,26,.06); }
+  .check-item input[type="checkbox"] { accent-color: var(--red); width: 15px; height: 15px; cursor: pointer; }
+  .check-item span { font-size: .85rem; color: var(--lightgray); font-weight: 400; }
+  .form-submit {
+    width: 100%; padding: 1rem; margin-top: 1.5rem;
+    background: var(--red); color: var(--white);
+    border: none; border-radius: 3px; cursor: pointer;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; transition: background .2s, transform .1s;
+  }
+  .form-submit:hover { background: var(--darkred); }
+  .form-submit:active { transform: scale(.99); }
+  .form-success {
+    display: none; text-align: center; padding: 2rem;
+  }
+  .form-success .success-icon { font-size: 3rem; margin-bottom: 1rem; }
+  .form-success h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.5rem; font-weight: 700; color: var(--white); margin-bottom: .5rem;
+  }
+  .form-success p { font-size: .9rem; color: var(--gray); }
+  .form-note { font-size: .75rem; color: #555; margin-top: 1rem; text-align: center; }
+  @media(max-width:768px) {
+    .form-row { grid-template-columns: 1fr; }
+    .form-wrapper { padding: 1.5rem; }
+  }
+
 </style>
 </head>
 <body>
@@ -266,7 +336,8 @@
     <li><a href="#sugerencia">Sugerencia</a></li>
     <li><a href="#rewards">Rewards</a></li>
     <li><a href="#psp">PSP</a></li>
-    <li><a href="#clients" class="nav-cta">Clientes</a></li>
+    <li><a href="#clients">Clientes</a></li>
+    <li><a href="#contacto" class="nav-cta">Presupuesto</a></li>
   </ul>
   <div class="hamburger" id="hamburger" onclick="document.getElementById('nav-links').classList.toggle('open')">
     <span></span><span></span><span></span>
@@ -776,6 +847,80 @@
         <blockquote>"La integración plena con los datos de prescripción nos ayuda a identificar las mejores oportunidades en el terreno."</blockquote>
         <cite>Jennyfer Gómez — Director Trade Marketing, Bayer Pharma</cite>
       </div>
+    </div>
+  </div>
+</section>
+
+<div class="red-bar"></div>
+
+<!-- FORMULARIO DE CONTACTO -->
+<section id="contacto">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom:2.5rem">
+      <div class="section-eyebrow" style="justify-content:center">Contacto</div>
+      <h2 class="section-title">Solicitá un <span style="color:var(--red)">presupuesto</span></h2>
+      <p class="section-subtitle" style="margin:0 auto">Completá el formulario y nos comunicamos a la brevedad para asesorarte sobre el servicio que mejor se adapta a tu laboratorio.</p>
+    </div>
+    <div class="form-wrapper reveal">
+      <div id="form-success" class="form-success">
+        <div class="success-icon">✅</div>
+        <h3>¡Mensaje enviado!</h3>
+        <p>Nos comunicaremos con vos a la brevedad.<br>Gracias por tu interés en Close-Up International.</p>
+      </div>
+      <form id="contact-form" action="https://formspree.io/f/mojpvqzb" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Nombre y apellido *</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+          </div>
+          <div class="form-group">
+            <label for="empresa">Laboratorio / Empresa *</label>
+            <input type="text" id="empresa" name="empresa" placeholder="Nombre del laboratorio" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+54 11 XXXX-XXXX">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Servicios de interés *</label>
+          <div class="services-check">
+            <label class="check-item"><input type="checkbox" name="servicios" value="Auditoría de Prescripciones"><span>Auditoría de Prescripciones</span></label>
+            <label class="check-item"><input type="checkbox" name="servicios" value="Auditoría de Ventas"><span>Auditoría de Ventas</span></label>
+            <label class="check-item"><input type="checkbox" name="servicios" value="Sales Farma CRM"><span>Sales Farma CRM</span></label>
+            <label class="check-item"><input type="checkbox" name="servicios" value="Xplora Mobile"><span>Xplora Mobile</span></label>
+            <label class="check-item"><input type="checkbox" name="servicios" value="Sugerencia de Pedidos"><span>Sugerencia de Pedidos</span></label>
+            <label class="check-item"><input type="checkbox" name="servicios" value="Rewards"><span>Rewards</span></label>
+            <label class="check-item"><input type="checkbox" name="servicios" value="PSP / Farma eRP"><span>PSP / Farma eRP</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cargo">Cargo</label>
+          <select id="cargo" name="cargo">
+            <option value="" disabled selected>Seleccioná tu cargo</option>
+            <option>Director General / CEO</option>
+            <option>Director Comercial</option>
+            <option>Director de Marketing</option>
+            <option>Jefe de Business Intelligence</option>
+            <option>Gerente de Ventas</option>
+            <option>Gerente de Marketing</option>
+            <option>Analista de BI / Data</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Mensaje / Consulta</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Contanos brevemente qué necesitás o qué producto te interesa..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Enviar solicitud →</button>
+        <p class="form-note">Tu información es confidencial y solo será utilizada para responder tu consulta.</p>
+      </form>
     </div>
   </div>
 </section>
